@@ -50,7 +50,7 @@ namespace ManageProducts.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Name,CreatedDate,Price,DepartmentId,Thumbnail")] Item item, HttpPostedFileBase upload)
+        public ActionResult Create([Bind(Include = "Name,CreatedDate,Price,DepartmentId")] Item item, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid) {
                 /* If statement for checking Thumbnail 
@@ -95,21 +95,20 @@ namespace ManageProducts.Controllers
         }
 
         // POST: Items/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ItemId,Name,CreatedDate,Price,DepartmentId")] Item item, HttpPostedFileBase upload)
+        public ActionResult EditConfirmed(int id, HttpPostedFileBase upload)
         {
-            if (ModelState.IsValid) {
-                /*
-                 * Query for the item again because
-                 * POST only passes data that presents in the web form (data in Bind)
-                 * Without querying the item again, navigation virtual property will be null
-                 * In this case, Thumbnail of the item will be null if the item is not queried
-                 */
-                item = db.Items.Find(item.ItemId);
+            /*
+             * If this Action use Bind(Include=....) as default (similar to Create Action above)
+             * Although the Item is in parameter, it still needs to query for the item again
+             * Because POST only passes data that presents in the web form (data in Bind)
+             * 
+             * So without querying the item again, navigation virtual property will be null
+             */
+            var item = db.Items.Find(id);
 
+            if (ModelState.IsValid) {
                 /* The following If statement is for checking Thumbnail 
                  * Also add Thumbnail to its database
                  */
