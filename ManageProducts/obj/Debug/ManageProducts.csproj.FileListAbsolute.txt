@@ -82,3 +82,4 @@ C:\Users\Xuan\Desktop\vs-workspace\ManageProducts\ManageProducts\obj\Debug\Manag
 C:\Users\Xuan\Desktop\vs-workspace\ManageProducts\ManageProducts\obj\Debug\ManageProducts.Migrations.init.resources
 C:\Users\Xuan\Desktop\vs-workspace\ManageProducts\ManageProducts\obj\Debug\ManageProducts.csproj.GenerateResource.Cache
 C:\Users\Xuan\Desktop\vs-workspace\ManageProducts\ManageProducts\obj\Debug\ManageProducts.Migrations.Thumbnail.resources
+C:\Users\Xuan\Desktop\vs-workspace\ManageProducts\ManageProducts\obj\Debug\ManageProducts.csprojResolveAssemblyReference.cache

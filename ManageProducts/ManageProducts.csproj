@@ -310,6 +310,7 @@
     <Content Include="Views\BrowseItem\ViewDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Views\Base\" />
     <Folder Include="Views\Thumbnail\" />
   </ItemGroup>
   <ItemGroup>

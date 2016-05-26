@@ -12,10 +12,21 @@ namespace ManageProducts
     {
         protected void Application_Start()
         {
+            // For hit counter
+            Application["TotalUser"] = 0;
+
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+
+        
+        protected void Session_Start() {
+            Application.Lock();
+            // Whenever there is a new session, increase counter
+            Application["TotalUser"] = (int)Application["TotalUser"] + 1;
+            Application.UnLock();
         }
     }
 }
