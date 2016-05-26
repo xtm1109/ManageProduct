@@ -1,48 +1,20 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Chỉnh sửa hàng hoá";
 }
 
-<div>
-    <div class="container1">
-        <div class="image">
-            <img src="@Url.Content("~/images/goods.png")" width="200" height="200" />
-        </div>
+<h1 style="padding-top:2%;text-align:center;">
+    Chỉnh sửa thông tin hàng hoá
+</h1>
+<hr />
 
-        <div id="options">
-            <input class="btn btn-default" type="button" value="Danh mục" onclick="location.href='@Url.Action("Index", "Departments")'" />
-            <input class="btn btn-default" type="button" value="Sản phẩm" onclick="location.href='@Url.Action("Index", "Items")'" />
-        </div>
+<div class="container1">
+    <div class="image">
+        <img src="@Url.Content("~/images/goods.png")" width="180" height="180" />
+    </div>
 
-        <div class="for_dpmt">
-            <div class="for_dpmt" id="dpmt_changes">
-                <button class="btn btn-default" id="dpmt_add_button">Thêm</button>
-                <button class="btn btn-default" id="dpmt_remove_button">Xoá</button>
-                <button class="btn btn-default" id="dpmt_edit_button">Thay đổi</button>
-            </div>
-        </div>
-
-        <div id="dpmt_add">
-            
-        </div>
-
-        <div class="for_item">
-            <div class="form-group for_item" id="departments" style="padding-top:20px;">
-                <label for="select">Chọn danh mục</label>
-                <select class="form-control" id="sel_dpmt" style="width:auto;">
-                    <option value="" selected disabled>--Chọn danh mục--</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                </select>
-            </div>
-
-            <div id="item_changes">
-                <button href="#add" class="btn btn-default" data-toggle="collapse">Thêm</button>
-                <button href="#remove" class="btn btn-default" data-toggle="collapse">Xoá</button>
-                <button href="#edit" class="btn btn-default" data-toggle="collapse">Thay đổi</button>
-            </div>
-        </div>     
+    <div id="options">
+        <input class="btn btn-default" type="button" value="Danh mục" onclick="location.href='@Url.Action("Index", "Departments")'" />
+        <input class="btn btn-default" type="button" value="Sản phẩm" onclick="location.href='@Url.Action("Index", "Items")'" />
     </div>
 </div>
