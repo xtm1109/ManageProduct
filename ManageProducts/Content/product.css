@@ -1,0 +1,48 @@
+﻿div.container1 {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.image {
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+
+#sel_dpmt {
+    display: block;
+    margin: 0 auto;
+}
+
+ul li span {
+    height: 50px;
+    display: table-cell;
+    vertical-align: middle;
+    color: #999999;
+}
+
+/* For description/details of an Item */
+.desc {
+    float: right;
+    width: 60%;
+}
+
+/* For thumbnail of an Item */
+.thumbnail {
+    float: right;
+    width: 40%;
+}
+
+/* 
+    For div that contains .desc and .thumbnail
+    Makes div's height to match its children
+    (Prevent floated divs from wrapping to new line)
+*/
+#container {
+    overflow: auto;
+}
+
+/* For ActionLink that navigates to previous page */
+.back_al {
+    padding-top: 2%;
+}

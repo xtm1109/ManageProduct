@@ -1,0 +1,71 @@
+﻿@model ManageProducts.Models.Item
+
+@{
+    ViewBag.Title = "Chi tiết sản phẩm";
+}
+
+<h2>Chi tiết sản phẩm</h2>
+
+<div>
+    <h4>Item</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        @* Display Item's department *@
+        <dt>
+            @Html.DisplayNameFor(model => model.Department.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department.Name)
+        </dd>
+
+        @* Display Item's name *@
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        @* Display Item's thumbnail *@
+        <dt>
+            @Html.DisplayNameFor(model => model.Thumbnail)
+        </dt>
+
+        <dd>
+            @if (Model.Thumbnail != null) { // There is a thumbnail
+                // The source goes to ThumbnailController Index action
+                <img src="~/Thumbnail?id=@Model.Thumbnail.ThumbnailId" alt="thumbnail" />
+            } else { // No thumbnail
+                <p>Không hình minh hoạ</p>
+            }
+        </dd>
+
+        @* Display Item's creation date *@
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+        @* Display Item's price *@
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Thay đổi", "Edit", new { id = Model.ItemId }) |
+    @Html.ActionLink("Mọi sản phẩm", "Index")
+</p>
+
+

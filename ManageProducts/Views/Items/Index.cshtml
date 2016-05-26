@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ManageProducts.Models.Item>
+
+@{
+    ViewBag.Title = "Danh sách sản phẩm";
+}
+
+<h2>Danh sách sản phẩm</h2>
+
+<p>
+    @Html.ActionLink("Thêm sản phẩm mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Department.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Department.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.ActionLink("Thay đổi", "Edit", new { id=item.ItemId }) |
+            @Html.ActionLink("Chi tiết", "Details", new { id=item.ItemId }) |
+            @Html.ActionLink("Xoá", "Delete", new { id=item.ItemId })
+        </td>
+    </tr>
+}
+
+</table>

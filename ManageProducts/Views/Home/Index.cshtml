@@ -1,0 +1,34 @@
+﻿@model ICollection<ManageProducts.Models.Department>
+
+@{
+    ViewBag.Title = "Trang chủ";
+}
+
+<div class="jumbotron">
+    <h1>Quản Lý Hàng Hoá</h1>
+    <p class="lead">Lựa chọn và xem hàng hoá qua danh mục bên dưới.</p>
+</div>
+
+<div class="row">
+    @foreach (var department in Model) {
+        <div class="col-md-4">
+            <h2 style="text-transform:uppercase;">@department.Name</h2>
+            <p> Tổng hợp các sản phẩm @department.Name </p>
+            <input class="btn btn-default" type="button" value="Xem sản phẩm &raquo" onclick="location.href='@Url.Action("Index", "BrowseItem", new { dpmtName = department.Name })'" /> 
+            @*<p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Xem sản phẩm &raquo;</a></p>*@
+        </div>
+    }
+</div>
+
+<!--
+<div class="col-md-4">
+    <h2>Danh mục hàng hoá 2</h2>
+    <p>Thông tin về danh mục hàng hoá 2.</p>
+    <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Các sản phẩm &raquo;</a></p>
+</div>
+<div class="col-md-4">
+    <h2>Danh mục hàng hoá 3</h2>
+    <p>Thông tin về danh mục hàng hoá 3.</p>
+    <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Các sản phẩm &raquo;</a></p>
+</div>
+-->

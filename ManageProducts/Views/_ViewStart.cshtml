@@ -1,0 +1,10 @@
+﻿@{
+    bool loggedIn = (System.Web.HttpContext.Current.User != null) && (System.Web.HttpContext.Current.User.Identity.IsAuthenticated);
+
+    if (loggedIn) {
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    } 
+    else {
+        Layout = "~/Views/Shared/_HomeLayout.cshtml";
+    }
+}

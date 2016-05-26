@@ -1,0 +1,32 @@
+﻿@model ManageProducts.Models.Department
+
+@{
+    ViewBag.Title = "Xoá danh mục";
+}
+
+<h2>Xoá danh mục</h2>
+
+<h3>Chắc chắn muốn xoá?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xoá" class="btn btn-default" />
+        </div>
+        <br />
+        <br />
+        @Html.ActionLink("Quay lại", "Index")
+    }
+</div>
