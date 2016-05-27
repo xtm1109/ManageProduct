@@ -80,6 +80,10 @@ namespace ManageProducts.Controllers
             // But on default the login form asks for Email
             // So using Email to get the user and UserName, and pass to the method
             var user = UserManager.FindByEmail(model.Email);
+            if (user == null) { // Email is not in the database
+                ModelState.AddModelError("", "Email không hợp lệ.");
+                return View(model);
+            }
             var result = await SignInManager.PasswordSignInAsync(user.UserName, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
@@ -91,7 +95,7 @@ namespace ManageProducts.Controllers
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
+                    ModelState.AddModelError("", "Mật khẩu không hợp lệ.");
                     return View(model);
             }
         }
